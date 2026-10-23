@@ -1,0 +1,1794 @@
+/* ==========================================================================
+   PALLET ROSS (ArtFusion) - High-End Minimalist Art Showcase Stylesheet
+   Pure Vanilla CSS Architecture - Single Hero Section Focus
+   ========================================================================== */
+
+:root {
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --bg-primary: #FFFFFF;
+  --bg-subtle: #FAFAFB;
+  --text-dark: #111111;
+  --text-muted: #666666;
+  --accent-copper: #E2703A;
+  --accent-blue: #1D4ED8;
+}
+
+/* --------------------------------------------------------------------------
+   1. Simple Minimalist Navigation Bar
+   -------------------------------------------------------------------------- */
+.pallet-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+.pallet-header.scrolled {
+  background: #FFFFFF;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+}
+
+.header-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-icon {
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+
+/* Desktop Nav Links */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.65rem;
+}
+
+.nav-item {
+  font-family: var(--font-main);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #555555;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-item:hover {
+  color: #111111;
+}
+
+.nav-dot {
+  font-size: 0.45rem;
+  color: #111111;
+  vertical-align: middle;
+}
+
+/* Header Action Icons */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Currency Selector Toggle */
+.currency-pill-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: #F3F4F6;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  margin-right: 0.45rem;
+}
+
+.curr-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #666666;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.curr-btn:hover {
+  color: #111111;
+}
+
+.curr-btn.active {
+  background: #111111;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-currency-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.mobile-currency-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666666;
+}
+
+.header-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: #666666;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.header-icon-btn:hover {
+  background: #F4F4F6;
+  color: #111111;
+}
+
+.mobile-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 38px;
+  height: 38px;
+  background: #F4F4F6;
+  border-radius: 10px;
+}
+
+.mobile-hamburger .bar {
+  width: 18px;
+  height: 2px;
+  background: #111111;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+.mobile-menu-drawer {
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-nav-links a {
+  display: block;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222222;
+  border-bottom: 1px solid #F3F4F6;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Solo 1st Section (Hero Section & Card Deck Spreading Animation)
+   -------------------------------------------------------------------------- */
+.solo-hero-view {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+}
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 4.5rem 1.5rem 1.5rem;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero-ambient-glow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 820px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(238, 242, 246, 0.85) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 20%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Top subtle pill badge */
+.hero-top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #F4F4F6;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0.22rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #333333;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.35rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.badge-sparkle {
+  color: #E2703A;
+  font-size: 0.82rem;
+}
+
+/* Large Bold Hero Headline */
+.hero-headline {
+  font-family: var(--font-main);
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #111111;
+  max-width: 860px;
+  margin: 0 auto 0.4rem;
+}
+
+.hero-headline-highlight {
+  background: linear-gradient(135deg, #111111 20%, #444444 60%, #E2703A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Card Stage: Hidden Behind Front Card -> Spread Out All Images
+   -------------------------------------------------------------------------- */
+.hero-card-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 350px;
+  margin: 0.65rem auto 1.5rem;
+  perspective: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.card-stage-inner {
+  position: relative;
+  width: 224px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.4s ease-out;
+}
+
+/* Full Bleed Rounded Artwork Card */
+.hero-art-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 224px;
+  height: 300px;
+  border-radius: 8px;
+  overflow: visible;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform, opacity, box-shadow, z-index;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-cover-wrap {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: #0B0E14;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22), 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #111111;
+  transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+}
+
+.card-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: top center !important;
+  display: block;
+  background: #0B0E14;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-art-card:hover .card-cover-img {
+  transform: scale(1.03);
+}
+
+.card-cover-scrim {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   STATE 1: INITIAL STATE (Fast 0s - 0.35s)
+   Exactly 1 card visible in the center! All other cards are completely hidden!
+   -------------------------------------------------------------------------- */
+.mode-stacked .hero-art-card {
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
+  transition-delay: 0s !important;
+}
+
+.mode-stacked .front-cover-card {
+  z-index: 10 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.mode-stacked .under-card {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   STATE 2: SPREAD OUT CARDS (Fast & snappy fanned spread)
+   Cards fluidly slide out and fan out across the row as before!
+   -------------------------------------------------------------------------- */
+.mode-fanned .front-cover-card,
+.mode-fanned .under-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.mode-fanned .card-index-0 {
+  transform: translate3d(-265px, 7px, 0) rotate(-6deg);
+  z-index: 1;
+  transition-delay: 0.015s;
+  --fan-x: -265px;
+}
+
+.mode-fanned .card-index-1 {
+  transform: translate3d(-158px, -2px, 0) rotate(-3deg);
+  z-index: 2;
+  transition-delay: 0.03s;
+  --fan-x: -158px;
+}
+
+.mode-fanned .card-index-2 {
+  transform: translate3d(-52px, -5px, 0) rotate(-1deg);
+  z-index: 3;
+  transition-delay: 0.045s;
+  --fan-x: -52px;
+}
+
+.mode-fanned .card-index-3 {
+  transform: translate3d(52px, -4px, 0) rotate(1deg);
+  z-index: 4;
+  transition-delay: 0.06s;
+  --fan-x: 52px;
+}
+
+.mode-fanned .card-index-4 {
+  transform: translate3d(158px, 2px, 0) rotate(3deg);
+  z-index: 5;
+  transition-delay: 0.075s;
+  --fan-x: 158px;
+}
+
+.mode-fanned .card-index-5 {
+  transform: translate3d(265px, 7px, 0) rotate(5deg);
+  z-index: 6;
+  transition-delay: 0.09s;
+  --fan-x: 265px;
+}
+
+.mode-fanned .card-index-0:hover { --fan-x: -265px; }
+.mode-fanned .card-index-1:hover { --fan-x: -158px; }
+.mode-fanned .card-index-2:hover { --fan-x: -52px; }
+.mode-fanned .card-index-3:hover { --fan-x: 52px; }
+.mode-fanned .card-index-4:hover { --fan-x: 158px; }
+.mode-fanned .card-index-5:hover { --fan-x: 265px; }
+
+/* Hover elevation in fanned spread - brings hovered card to front with full visibility */
+.mode-fanned .hero-art-card:hover,
+.mode-fanned .hero-art-card.card-active {
+  z-index: 100 !important;
+  transform: translate3d(var(--fan-x, 0), -28px, 50px) scale(1.12) rotate(0deg) !important;
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+  transition-delay: 0s !important;
+}
+
+.mode-fanned .hero-art-card:hover .card-cover-wrap,
+.mode-fanned .hero-art-card.card-active .card-cover-wrap {
+  border-color: #FFDE00 !important;
+  box-shadow: 0 0 25px rgba(255, 222, 0, 0.35), 0 28px 65px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+
+/* Hover creator tag with live price in INR/USD */
+.creator-hover-tag {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  opacity: 0;
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.24rem 0.75rem;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 35;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.creator-hover-tag.tag-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.creator-card-price {
+  color: #14B8A6;
+  font-weight: 800;
+  padding-left: 0.35rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.cascade-art-card .creator-hover-tag {
+  top: -36px;
+}
+
+/* Hero Subtext */
+.hero-subtext {
+  font-family: var(--font-main);
+  font-size: clamp(0.94rem, 1.2vw, 1.08rem);
+  color: #666666;
+  max-width: 650px;
+  line-height: 1.55;
+  margin: 0 auto 1.15rem;
+  font-weight: 400;
+}
+
+/* CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.15rem;
+  margin-bottom: 1.15rem;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #111111;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.75rem 1.7rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-hero-primary:hover {
+  background: #252525;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.hero-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111111;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.hero-secondary-link .arrow-hover {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-secondary-link:hover .arrow-hover {
+  transform: translateX(4px);
+}
+
+/* Interactive Animation Controller Pill Bar */
+.animation-state-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #F4F5F7;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.28rem 0.48rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  user-select: none;
+}
+
+.state-toggle-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #666666;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.state-toggle-pill.active {
+  background: #FFFFFF;
+  color: #111111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.state-toggle-pill.replay-btn {
+  background: #111111;
+  color: #FFFFFF;
+}
+
+.state-toggle-pill.replay-btn:hover {
+  background: #2a2a2a;
+}
+
+/* Proof Metrics Strip */
+.hero-metrics-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  background: #FAFAFB;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 999px;
+  flex-wrap: wrap;
+}
+
+.metric-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metric-val {
+  font-family: var(--font-main);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.02em;
+}
+
+.metric-lbl {
+  font-size: 0.76rem;
+  color: #777777;
+}
+
+.metric-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   3. Section 2: E-Commerce Showcase & Slanted Cascade Deck ("slanding sprand")
+   -------------------------------------------------------------------------- */
+.section-ecommerce {
+  position: relative;
+  padding: 6.5rem 2rem 5.5rem;
+  background: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.section2-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section2-split {
+  display: grid;
+  grid-template-columns: 1fr 1.18fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Left Column */
+.section2-copy-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.section2-eyebrow {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #555555;
+  margin-bottom: 0.85rem;
+}
+
+.section2-headline {
+  font-family: var(--font-main);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #111111;
+  margin: 0 0 1.25rem;
+}
+
+.section2-accent {
+  color: #881337; /* rich dark burgundy / crimson from reference video */
+}
+
+.section2-subtext {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  line-height: 1.62;
+  color: #666666;
+  max-width: 440px;
+  margin: 0 0 1.75rem;
+}
+
+.section2-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-section2-primary {
+  background: #111111;
+  color: #FFFFFF;
+  font-size: 0.94rem;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-section2-primary:hover {
+  background: #252525;
+  transform: translateY(-1px);
+}
+
+.btn-section2-link {
+  background: transparent;
+  border: none;
+  color: #111111;
+  font-size: 0.94rem;
+  font-weight: 600;
+  padding: 0.8rem 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.btn-section2-link:hover {
+  color: #881337;
+}
+
+.section2-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #F4F5F7;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.24rem 0.44rem;
+  border-radius: 999px;
+  user-select: none;
+}
+
+.sec2-toggle-pill {
+  padding: 0.36rem 0.82rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #666666;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sec2-toggle-pill.active {
+  background: #FFFFFF;
+  color: #111111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sec2-toggle-pill.replay-btn {
+  background: #111111;
+  color: #FFFFFF;
+}
+
+.sec2-toggle-pill.replay-btn:hover {
+  background: #2a2a2a;
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Slanted Diagonal Cascade Deck Stage ("slanding sprand")
+   -------------------------------------------------------------------------- */
+.section2-stage-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 480px;
+}
+
+.section2-cascade-stage {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  height: 480px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.cascade-inner {
+  position: relative;
+  width: 224px;
+  height: 300px;
+  margin: 1rem 0 0 1rem;
+}
+
+.cascade-art-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 224px;
+  height: 300px;
+  border-radius: 8px;
+  cursor: pointer;
+  will-change: transform, box-shadow, z-index;
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease;
+}
+
+.cascade-card-wrap {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: #0B0E14;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+  border: 2px solid #111111;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.cascade-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: top center !important;
+  display: block;
+  background: #0B0E14;
+  transition: transform 0.4s ease;
+}
+
+.cascade-card-scrim {
+  display: none !important;
+}
+
+/* STATE 1: Stacked Deck (Initial state shown in Image 1) */
+.mode-slanted-stacked .cascade-art-card {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.mode-slanted-stacked .card-idx-0 { transform: translate3d(135px, 105px, 0) scale(0.97); z-index: 1; }
+.mode-slanted-stacked .card-idx-1 { transform: translate3d(138px, 108px, 0) scale(0.975); z-index: 2; }
+.mode-slanted-stacked .card-idx-2 { transform: translate3d(141px, 111px, 0) scale(0.98); z-index: 3; }
+.mode-slanted-stacked .card-idx-3 { transform: translate3d(144px, 114px, 0) scale(0.985); z-index: 4; }
+.mode-slanted-stacked .card-idx-4 { transform: translate3d(147px, 117px, 0) scale(0.99); z-index: 5; }
+.mode-slanted-stacked .card-idx-5 { transform: translate3d(150px, 120px, 0) scale(1); z-index: 6; }
+
+/* STATE 2: Slanted Cascade Spread (Descending staircase from top-left to bottom-right) */
+.mode-slanted-spread .card-idx-0 {
+  transform: translate3d(0px, 0px, 0);
+  z-index: 1;
+  transition-delay: 0.04s;
+  --step-x: 0px;
+  --step-y: 0px;
+}
+
+.mode-slanted-spread .card-idx-1 {
+  transform: translate3d(68px, 34px, 0);
+  z-index: 2;
+  transition-delay: 0.07s;
+  --step-x: 68px;
+  --step-y: 34px;
+}
+
+.mode-slanted-spread .card-idx-2 {
+  transform: translate3d(136px, 68px, 0);
+  z-index: 3;
+  transition-delay: 0.10s;
+  --step-x: 136px;
+  --step-y: 68px;
+}
+
+.mode-slanted-spread .card-idx-3 {
+  transform: translate3d(204px, 102px, 0);
+  z-index: 4;
+  transition-delay: 0.13s;
+  --step-x: 204px;
+  --step-y: 102px;
+}
+
+.mode-slanted-spread .card-idx-4 {
+  transform: translate3d(272px, 136px, 0);
+  z-index: 5;
+  transition-delay: 0.16s;
+  --step-x: 272px;
+  --step-y: 136px;
+}
+
+.mode-slanted-spread .card-idx-5 {
+  transform: translate3d(340px, 170px, 0);
+  z-index: 6;
+  transition-delay: 0.19s;
+  --step-x: 340px;
+  --step-y: 170px;
+}
+
+/* Hover elevation in slanted cascade - Pops card to front with FULL visibility */
+.mode-slanted-spread .cascade-art-card:hover,
+.cascade-art-card.card-hovered {
+  transform: translate3d(var(--step-x, 0), calc(var(--step-y, 0) - 28px), 50px) scale(1.14) !important;
+  z-index: 100 !important;
+  transition-delay: 0s !important;
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.45) !important;
+}
+
+.mode-slanted-spread .cascade-art-card:hover .cascade-card-wrap,
+.cascade-art-card.card-hovered .cascade-card-wrap {
+  border-color: #FFDE00 !important;
+  box-shadow: 0 0 25px rgba(255, 222, 0, 0.35), 0 28px 65px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Artwork Quick View Modal
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 24px;
+  width: 860px;
+  max-width: 92vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+  animation: modalScale 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScale {
+  from { transform: scale(0.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F4F4F6;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: #555555;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #111111;
+  color: #FFFFFF;
+}
+
+.modal-content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.modal-image-col {
+  position: relative;
+  background: #F1F2F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-artwork-img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain !important;
+  object-position: top center !important;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  background: #0B0E14;
+}
+
+.modal-provenance-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.modal-info-col {
+  padding: 2.75rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-artist-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal-artist-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.modal-artist-handle {
+  font-size: 0.78rem;
+  color: #777777;
+}
+
+.modal-title {
+  font-family: var(--font-main);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #111111;
+  margin: 0 0 0.35rem;
+}
+
+.modal-medium {
+  font-size: 0.88rem;
+  color: #666666;
+  margin: 0 0 1.5rem;
+}
+
+.modal-specs-table {
+  background: #FAFAFB;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  font-size: 0.84rem;
+}
+
+.spec-label {
+  color: #888888;
+}
+
+.spec-value {
+  color: #111111;
+  font-weight: 600;
+}
+
+.status-available {
+  color: #10B981 !important;
+}
+
+.modal-price-box {
+  margin-bottom: 2rem;
+}
+
+.price-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #888888;
+  margin-bottom: 0.2rem;
+}
+
+.modal-price-val {
+  font-family: var(--font-main);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #111111;
+}
+
+.modal-crypto-tag {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #777777;
+  margin-left: 0.5rem;
+}
+
+.modal-inr-equiv {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: #666666;
+  font-weight: 500;
+}
+
+.modal-actions-row {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.modal-btn-acquire {
+  flex: 1;
+  padding: 0.85rem;
+  background: #111111;
+  color: #FFFFFF;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.modal-btn-acquire:hover {
+  background: #252525;
+}
+
+.modal-btn-offer {
+  padding: 0.85rem 1.25rem;
+  background: #F4F4F6;
+  color: #111111;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.modal-btn-offer:hover {
+  background: #E5E6E9;
+}
+
+/* Toast Notification */
+.pallet-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111111;
+  color: #FFFFFF;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 3000;
+}
+
+.toast-sparkle {
+  color: #E2703A;
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-card-stage {
+    height: 300px;
+  }
+
+  .card-stage-inner {
+    width: 195px;
+    height: 260px;
+  }
+
+  .hero-art-card {
+    width: 195px;
+    height: 260px;
+  }
+
+  .mode-fanned .card-index-0 {
+    transform: translate3d(-240px, 6px, 0) rotate(-6deg);
+  }
+  .mode-fanned .card-index-1 {
+    transform: translate3d(-145px, -2px, 0) rotate(-3deg);
+  }
+  .mode-fanned .card-index-2 {
+    transform: translate3d(-50px, -5px, 0) rotate(-1deg);
+  }
+  .mode-fanned .card-index-3 {
+    transform: translate3d(45px, -3px, 0) rotate(1deg);
+  }
+  .mode-fanned .card-index-4 {
+    transform: translate3d(140px, 2px, 0) rotate(3deg);
+  }
+  .mode-fanned .card-index-5 {
+    transform: translate3d(235px, 6px, 0) rotate(5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-hamburger {
+    display: flex;
+  }
+
+  .hero-section {
+    padding-top: 5rem;
+  }
+
+  .hero-card-stage {
+    height: 255px;
+  }
+
+  .card-stage-inner {
+    width: 156px;
+    height: 209px;
+  }
+
+  .hero-art-card {
+    width: 156px;
+    height: 209px;
+    border-radius: 8px;
+  }
+
+  .card-cover-wrap {
+    border-radius: 8px;
+  }
+
+  .mode-fanned .card-index-0 {
+    transform: translate3d(-140px, 4px, 0) scale(0.9) rotate(-5deg);
+  }
+  .mode-fanned .card-index-1 {
+    transform: translate3d(-85px, -1px, 0) scale(0.95) rotate(-2deg);
+  }
+  .mode-fanned .card-index-2 {
+    transform: translate3d(-30px, -3px, 0) scale(0.98) rotate(0deg);
+  }
+  .mode-fanned .card-index-3 {
+    transform: translate3d(25px, -2px, 0) scale(0.98) rotate(1deg);
+  }
+  .mode-fanned .card-index-4 {
+    transform: translate3d(80px, 1px, 0) scale(0.95) rotate(3deg);
+  }
+  .mode-fanned .card-index-5 {
+    transform: translate3d(135px, 4px, 0) scale(0.9) rotate(5deg);
+  }
+
+  .modal-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Comic Book Theme Enhancements
+   -------------------------------------------------------------------------- */
+:root {
+  --font-comic-head: 'Bebas Neue', 'Plus Jakarta Sans', sans-serif;
+  --font-comic-pop: 'Bangers', cursive;
+  --color-comic-yellow: #FFDE00;
+  --color-comic-red: #E63946;
+  --color-comic-blue: #0284C7;
+  --color-comic-dark: #11141C;
+}
+
+.comic-theme-root {
+  background-color: #FAFAFA;
+}
+
+/* Comic Logo Badge */
+.comic-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #111111;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-logo:hover .comic-logo-badge {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+.brand-text-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-tagline {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #E63946;
+  font-family: var(--font-main);
+}
+
+/* Comic Pill & Dot */
+.comic-dot {
+  color: #E63946 !important;
+}
+
+.comic-badge {
+  background: #FFFBEB !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  color: #92400E !important;
+}
+
+.comic-star {
+  color: #D97706;
+}
+
+/* Comic Hero Headline */
+.comic-hero-headline {
+  font-family: var(--font-comic-head);
+  letter-spacing: 0.02em;
+  font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+  text-transform: uppercase;
+}
+
+.comic-highlight {
+  background: linear-gradient(135deg, #E63946 0%, #D97706 60%, #FFDE00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Comic Card Frame & Sheen */
+.comic-cover-wrap, .comic-cascade-wrap {
+  border: 2px solid #111111;
+  border-radius: 8px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+  background: #0B0E14;
+}
+
+.comic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: top center !important;
+  display: block;
+  background: #0B0E14;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-art-card:hover .comic-img,
+.cascade-art-card:hover .comic-img {
+  transform: scale(1.02);
+}
+
+.comic-dot-gold {
+  background: #FFDE00 !important;
+}
+
+/* Comic Buttons */
+.comic-btn-primary {
+  background: #111111;
+  color: #FFFFFF;
+  border: 2px solid #111111;
+  box-shadow: 3px 3px 0px #E63946;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.comic-btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #E63946;
+  background: #1F2430;
+}
+
+/* Comic Modal Enhancements */
+.comic-modal-slab-frame {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #1E293B;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  background: #0F172A;
+}
+
+.comic-provenance-badge {
+  background: #ECFDF5;
+  border: 1px solid #10B981;
+  color: #065F46;
+  font-weight: 700;
+}
+
+.comic-spec-grade {
+  color: #2563EB !important;
+  font-weight: 800 !important;
+}
+
+.comic-price-val {
+  color: #0F172A;
+}
+
+.comic-btn-acquire {
+  background: #E63946 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #111111 !important;
+  box-shadow: 3px 3px 0px #111111 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em;
+}
+
+.comic-btn-acquire:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #111111 !important;
+}
+
+.comic-btn-bid {
+  border: 2px solid #111111 !important;
+  box-shadow: 3px 3px 0px #CBD5E1 !important;
+  font-weight: 700 !important;
+}
+
+.comic-toast {
+  border: 2px solid #111111;
+  box-shadow: 4px 4px 0px #E63946;
+}
+
+.comic-toast-star {
+  color: #FFDE00;
+}
+
+/* --------------------------------------------------------------------------
+   6. Section 3: Promotional Comic Hero Banner (Matching Reference Model)
+   -------------------------------------------------------------------------- */
+.section-promo-banner {
+  padding: 4.5rem 2rem 5.5rem;
+  background: #FAFAFA;
+}
+
+.promo-banner-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.promo-banner-card {
+  position: relative;
+  min-height: 290px;
+  border-radius: 18px;
+  background: linear-gradient(114deg, #B22D4B 0%, #8E1C38 38%, #561123 38.2%, #380814 100%);
+  border: 3px solid #111111;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22), 5px 5px 0px #111111;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: center;
+  overflow: visible;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promo-banner-card:hover {
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28), 7px 7px 0px #111111;
+}
+
+/* Left Content Column */
+.promo-banner-content {
+  padding: 2.75rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.promo-banner-title {
+  font-family: var(--font-comic-head, 'Bebas Neue', sans-serif);
+  font-size: clamp(3rem, 4.8vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.35rem 0;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #FFE81F 0%, #FFA800 48%, #E63946 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 3px 0px rgba(0, 0, 0, 0.85));
+}
+
+.promo-banner-subtitle {
+  font-family: var(--font-main);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 0.45rem 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.promo-banner-offer {
+  margin: 0 0 1.65rem 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.offer-percent {
+  font-family: var(--font-comic-head, 'Bebas Neue', sans-serif);
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.offer-label {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.promo-banner-btn {
+  background: #1D8CF8;
+  color: #FFFFFF;
+  border: 2px solid #111111;
+  border-radius: 999px;
+  padding: 0.72rem 2.2rem;
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px #111111, 0 6px 18px rgba(29, 140, 248, 0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.promo-banner-btn:hover {
+  transform: translate(-2px, -2px);
+  background: #0284C7;
+  box-shadow: 5px 5px 0px #111111, 0 8px 24px rgba(2, 132, 199, 0.55);
+}
+
+/* Right Column: Dynamic 3D Breakout Character from a1.png */
+.promo-banner-character-wrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.promo-banner-character-img {
+  position: absolute;
+  right: 2rem;
+  bottom: -36px;
+  height: 385px;
+  width: auto;
+  max-width: none;
+  filter: drop-shadow(0 20px 32px rgba(0, 0, 0, 0.55));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.promo-banner-card:hover .promo-banner-character-img {
+  transform: scale(1.05) translateY(-6px);
+}
+
+/* --------------------------------------------------------------------------
+   7. Simple Minimalist Comic Footer
+   -------------------------------------------------------------------------- */
+.simple-comic-footer {
+  background: #0C1017;
+  color: #E2E8F0;
+  padding: 3.5rem 2rem 2.5rem;
+  border-top: 3px solid #111111;
+}
+
+.footer-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.footer-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-brand-title {
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.footer-brand-tagline {
+  font-size: 0.78rem;
+  color: #94A3B8;
+  margin-left: 0.6rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  padding-left: 0.75rem;
+}
+
+.footer-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.85rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav-links a {
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-nav-links a:hover {
+  color: #FFDE00;
+}
+
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.75rem;
+  font-size: 0.82rem;
+  color: #64748B;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.footer-copyright {
+  margin: 0;
+}
+
+.footer-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.footer-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: #94A3B8;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Responsive adjustments for Section 3 & Footer */
+@media (max-width: 992px) {
+  .promo-banner-card {
+    grid-template-columns: 1.1fr 1fr;
+    min-height: 270px;
+  }
+
+  .promo-banner-content {
+    padding: 2.25rem 2.5rem;
+  }
+
+  .promo-banner-character-img {
+    height: 320px;
+    bottom: -25px;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-promo-banner {
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .promo-banner-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .promo-banner-content {
+    padding: 2rem 1.75rem 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .promo-banner-character-wrap {
+    height: 260px;
+    justify-content: center;
+  }
+
+  .promo-banner-character-img {
+    position: relative;
+    right: auto;
+    bottom: 0;
+    height: 270px;
+    margin: 0 auto;
+  }
+
+  .footer-brand-tagline {
+    display: none;
+  }
+
+  .footer-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
