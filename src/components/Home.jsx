@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Home.css';
 
 // Import genuine generated comic book covers
@@ -971,6 +971,7 @@ export default function Home() {
         <div className="modal-overlay" onClick={() => setSelectedArtwork(null)}>
           <div
             className="modal-card comic-modal-card"
+            data-lenis-prevent
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-label="Comic Book Details"
